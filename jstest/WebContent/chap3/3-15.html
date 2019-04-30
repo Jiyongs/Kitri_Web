@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+<!-- 객체 생성 -->
+var empty_object  = {};
+var member = {
+		"user-name" : "홍길동",
+		"age" : 20,
+		"city" : "서울"
+};
+
+<!-- 객체의 속성 값 변경 -->
+member.age = 30;
+member["city"] = "경기도";
+
+console.log(member["age"]);
+console.log(member.city);
+
+<!-- 객체의 속성 추가 -->
+member.tel = "010-1234-1234";
+console.log(member.tel);
+
+<!-- 객체 참조 -->
+var x = member;
+x.city = "제주도";
+<!-- 둘 다 제주도가 찍힘 -->
+console.log(x.city);
+console.log(member.city);
+
+function a(a,b){
+	var sum = a + b;
+	console.log(sum + "두 개");
+}
+
+
+function a(a,b,c){
+	var sum = a+b+c;
+	console.log(sum + "세 개");
+}
+
+a(1,2);  // 나중에 선언된 함수가 우선 호출됨
+
+var or1 = member.tel || member.city;  // || : 앞>뒤
+var or2 = member.city || member.tel;
+var and1 = member.tel && member.city; // && : 앞<뒤
+var and2 = member.city && member.tel;
+console.log(or1);
+console.log(or2);
+console.log(and1);
+console.log(and2);
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

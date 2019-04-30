@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.item11 { grid-area: header1;}
+.item12 { grid-area: header2;}
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'menu header1 header1 header2 header2 header2 header2'
+    'menu main main main main right right'
+    'menu footer footer footer footer footer footer';
+  grid-gap: 20px;
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.header {
+   font-size: 30px;
+   text-align: left;
+}
+.header.in {
+   font-size: 15px;
+}
+
+p.main {
+   font-size: 20px;
+   text-align: left;
+   padding: 10px;
+}
+
+p.right{
+   background: orange;
+   text-align: right;
+   padding: 10px;
+}
+
+p.footer{
+   text-size: 10px;
+   text-shadow: 3px 2px orange;
+}
+
+<!--ul.menu스타일이 안 먹음-->
+ul.menu{
+   list-style : none;
+}
+ul.menu li {
+   font-size : 15px;
+}
+#menutitle{
+   margin : 5px;
+   text-align : left;
+   font-size : 15px;
+}
+
+ul.header {
+   list-style: square;
+}
+ul.header li {
+   font-size : 15px;
+    float: left;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="grid-container">
+  <div class="item11">
+     <div class="header">Welcome to Wikipedia,</div>
+     <div class="header in">the free encyclopedia that anyone can edit,</div>
+     <div class="header in">5,845,923 article in English</div>
+  </div>
+  <div class="item12">
+     <ul class="header" style='list-style-type: square; text-align : left;'>
+       <li><a href="test1.html">Arts</a></li>
+        <li><a href="test1.html">History</a></li>
+        <li><a href="test1.html">Society</a></li>
+    </ul>
+    <br>
+    <ul class="header" style='list-style-type: square; text-align : left;'>
+        <li><a href="test1.html">Biography</a></li>
+        <li><a href="test1.html">Mathematics</a></li>
+        <li><a href="test1.html">Technology</a></li>
+    </ul>
+    <br>
+    <ul class="header" style='list-style-type: square; text-align : left;'>
+        <li><a href="test1.html">Geography</a></li>
+        <li><a href="test1.html">Science</a></li>
+        <li><a href="test1.html">All portals</a></li>
+    </ul>
+
+  </div>
+  
+  <div class="item2">
+      <img src="/divtest/img/wikiLogo.png" width="200px">
+      <h3 align="center" style='margin:0px;'>WikiPedia</h3>
+      <div style="font-size : 10px;" align="center">The Free Encyclopedia</div>
+      
+     <ul class="menu" style='list-style-type: circle; text-align : left;'>
+       <li><a href="test1.html">Main page</a></li>
+        <li><a href="test1.html">Contents</a></li>
+        <li><a href="test1.html">Featured content</a></li>
+        <li><a href="test1.html">Current article</a></li>
+        <li><a href="test1.html">Random article</a></li>
+        <li><a href="test1.html">Donate to Wikipedia</a></li>
+        <li><a href="test1.html">Wikipedia store</a></li>
+    </ul>
+    
+    <div id="menutitle">Interaction</div>
+    <hr width="90%" style="margin : 5px;">
+    <ul class="menu" style='list-style-type: circle; text-align : left;'>
+       <li><a href="test1.html">Help</a></li>
+        <li><a href="test1.html">About Wikipedia</a></li>
+        <li><a href="test1.html">Community portal</a></li>
+        <li><a href="test1.html">Recent changes</a></li>
+        <li><a href="test1.html">Contact page</a></li>
+    </ul>
+    
+    <div id="menutitle">Tools</div>
+    <hr width="90%" style="margin : 5px;">
+    <ul class="menu" style='list-style-type: circle; text-align : left;'>
+       <li><a href="test1.html">What links here</a></li>
+        <li><a href="test1.html">Related changes</a></li>
+        <li><a href="test1.html">Upload file</a></li>
+        <li><a href="test1.html">Special pages</a></li>
+        <li><a href="test1.html">Permanent link</a></li>
+        <li><a href="test1.html">Page information</a></li>
+        <li><a href="test1.html">Wikidata item</a></li>
+    </ul>
+    
+  </div>
+  
+  <div class="item3">
+     <ol type="a">
+   <li>
+        <h3>첫 번째 글</h3>
+        <p class="main"><a href="https://www.w3schools.com/css/css_grid.asp">참고한 예제</a></p>
+        <p class="main">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.[1] Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media.</p>
+     </li>
+     <li>
+        <h3>두 번째 글</h3>
+        <p class="main">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.[1] Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media.</p>     
+     </li>
+     <li>
+        <h3>세 번째 글</h3>
+        <p class="main">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.[1] Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media.</p>     
+     </li>
+     
+     </ol>
+  </div>  
+  
+  <div class="item4">
+     <p class="right">오른쪽 공간에 채우기</p>
+     <p class="right">오른쪽 공간에 채우기</p>
+     <p class="right">오른쪽 공간에 채우기</p>
+     <p class="right">오른쪽 공간에 채우기</p>
+     <p class="right">오른쪽 공간에 채우기</p>
+  </div>
+  
+  <div class="item5">
+     <p class="footer">맨 아래 내용 채우기</p>
+  </div>
+  
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+    //window창이 로딩이 다 된 후(html이 다 읽힌 후)
+	window.onload = function() {
+    	//id로 body의 요소 주소를 가져옴
+		var view = document.getElementById("view");
+		var view2 = document.getElementById("view2");
+		
+		//얻어온 주소에 innerHTML을 이용하여, 
+		view.innerHTML = '<font color="magenta" size="15">문자열 추가해요</font>';
+		view2.style.color = "steelblue";
+		view2.style.backgroundColor = "orange";
+		
+		//id가 img인 요소에 속성 지정 setAttribute()
+		document.getElementById("img").setAttribute("src", "/js/img/logo.png");
+	}
+</script>
+
+</head>
+<body>
+
+	<div align="center">
+		<div id="view"></div>
+		<div id="view2">안녕하세요</div>
+		<img id="img">
+	</div>
+
+
+</body>
+</html>

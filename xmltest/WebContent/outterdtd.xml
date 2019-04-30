@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book SYSTEM "outter.dtd">
+
+<book>
+	<title>java &amp; xml</title>
+	<author>홍길동</author>
+	<price>30000</price>
+</book>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book[
+	<!ENTITY kr "대한민국">
+	<!ELEMENT book (title,author,price,description?)>
+		<!ELEMENT title (#PCDATA)>
+		<!ELEMENT author (#PCDATA)>
+		<!ELEMENT price (#PCDATA)>
+		<!ELEMENT discription (#PCDATA)>
+]>
+
+<book>
+	<title>&kr;</title>
+	<author>홍길동</author>
+	<price>30000</price>
+</book>

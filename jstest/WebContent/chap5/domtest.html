@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dom - 설문조사</title>
+
+<style type="text/css">
+table {
+	width: 300px;
+}
+td {
+	border: 1px solid lightgray;
+	font-family : 굴림;
+	font-size : 12pt;
+	font-weight : bold;
+}
+
+.td1 {
+	background-color : orange;
+	text-align : center;
+}
+
+.td2 {
+	background-color : pink;	
+}
+
+
+#container {
+
+background-color: #F0F0F0;
+
+width: 960px;
+
+margin: 0 auto;
+
+padding: 10px;
+
+}
+
+</style>
+
+<script type="text/javascript">
+var idx = 0;
+// var span;
+
+function appendAnswer() {
+	// <input> 생성하기
+	idx++;
+	var ip = document.createElement("input");  //<input>
+	ip.setAttribute("type", "text");           //<input type="text">
+	ip.setAttribute("name", "answer");         //<input type="text" name="answer">
+
+	var btn = document.createElement("input");
+	btn.setAttribute("type", "button");
+	btn.setAttribute("value", "제거");
+	btn.setAttribute("onclick", "deleteAnswer("+idx+");");
+	
+	// <div> 생성하기
+	var div = document.createElement("div");
+	div.setAttribute("id", "answer"+idx);
+
+	div.appendChild(ip);
+	div.appendChild(btn);
+	
+	// span에 생성한 <div> 넣기
+	var span = document.getElementById("answerSpan");
+	span.appendChild(div);
+}
+
+function deleteAnswer(i) {
+	var delDiv = document.getElementById("answer" + i);
+	if(delDiv != null){
+		delDiv.parentNode.removeChild(delDiv);  //부모노드를 얻어와서, 자식 노드를 지움
+		//span.removeChild(delDiv); //span(부모노드)의 자식 노드를 지움
+	}
+}
+
+function makePoll(){
+	
+	//질문 유효성 검사 (1개)
+	if(document.getElementById("question").value == ""){
+		alert("질문을 입력하세요!!!");
+		return;
+	}
+	
+	// 답변 받기 (여러 개)
+	var answer = document.getElementsByName("answer");  //name=answer인 요소가 2개 이상이므로, answer변수는 배열이 됨
+	// 답변 유효성 검사
+	for(var i = 0; i<answer.length; i++) {
+		if(answer[i].value == "") {
+			alert("답변을 입력하세요!");
+			return;
+		}
+	}
+	
+	// 일반 접근 방식
+//	document.poll.action = "http://www.naver.com";    //document.poll : 문서안의 name이 poll인 요소
+//	document.poll.submit(); //서버로 보내라고 명령
+	
+	// DOM script 방식
+	var form = document.getElementById("poll"); //<form> 얻어옴
+	form.setAttribute("action", "http://www.naver.com");
+	form.submit();
+	
+	//jQuery 방식
+//	$("#poll").attr("action", "http://www.naver.com").submit();
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="container" align="center">
+<h3>설문조사 만들기</h3>
+
+<!-- 방법1 : onsubmit="return false" : submit 막기 -->
+<!-- 방법2 : button을 input type=button으로 변경 -->
+<form name="poll" id="poll" action="" onsubmit="return false">
+<table>
+<tr>
+	<td class="td1">질문</td>
+	<td class="td2"><input type="text" name="question"  id="question"></td>
+</tr>
+<tr>
+	<td class="td1">
+	답변안해<br>
+	<button onclick="javascript:appendAnswer();">안추가</button>
+	</td>
+	<td class="td2">
+	<div><input type="text" name="answer" id="answer"></div>
+	<span id="answerSpan"></span>
+	
+	</td>
+</tr>
+<tr>
+	<td class="td1" colspan="2">
+	<button onclick="javascript:makePoll();">안만들기</button>
+	</td>
+</tr>
+</table>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>float로 만들어보는 GridLayout</title>
+	
+<style>
+.container{
+	margin : 0 auto;
+	width : 800px;
+	height: 600px;
+	background-color : skyblue;
+	padding : 1%;
+}	
+
+.header{
+	height : 20%;
+	background-color : darkorange;
+	margin-bottom : 1%;
+}
+
+.content{
+	width : 80%;
+	height :60%;
+	margin-bottom: 1%;
+	background-color : pink;
+	float : left;	
+}
+
+.sidebar{
+	width : 18%;
+	height : 60%;
+	margin-left : 1%;
+	background-color : gray;
+	float : left;	
+}
+
+.footer{
+	height : 14%;
+	background-color : ivory;
+	clear : left;
+}
+</style>
+
+</head>
+<body>
+	<div class = "container">
+		<div class = "header">
+			<h2>HEADER</h2>
+		</div>
+		<div class = "content">
+			<h2>CONTENT</h2>
+		</div>
+		<div class = "sidebar">
+			<h2>SIDEBAR</h2>
+		</div>
+		<div class = "footer">
+			<h2>FOOTER</h2>
+		</div>
+	</div>
+</body>
+</html>

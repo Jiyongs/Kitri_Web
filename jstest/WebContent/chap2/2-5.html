@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function startTime() {
+		window.setInterval(showTime, 1000);	
+}
+
+	function showTime() {
+		var date = new Date();
+		var view = document.getElementById("viewtime"); //id=viewtime인 <div>가 들어감
+		view.innerHTML = '<font color=steelblue size="15">'+date+'</font>';  //<div></div> 사이에 HTML로 집어넣어라
+	}
+</script>
+
+</head>
+<body>
+	<div id="viewtime" align="center"></div>
+	<button onclick="startTime();">시간작동</button>
+</body>
+</html>

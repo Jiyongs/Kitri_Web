@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="div1">클릭해보세요~!</div>
+
+	<script type="text/javascript">
+	
+	// DOM 이벤트 핸들러 등록 방법
+	document.getElementById("div1").onclick = function() {
+		alert("안녕하세요");
+	}
+	
+	// DOM 레벨2 이벤트 명세 방법
+	// addEventListener("on을 뺀 이벤트명", 함수명, 캡쳐링 여부)
+	document.getElementById("div1").addEventListener("click", openAlert, false);
+	
+	function openAlert(){
+		alert("안녕하세요.");
+	}
+	
+	</script>
+	
+</body>
+</html>

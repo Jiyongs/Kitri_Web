@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE booklist SYSTEM "book.dtd">
+
+<booklist>
+	<book isbn="abc1">
+		<title>책이름1</title>
+		<author>
+			<name></name>
+			<tel>010-1234-5667</tel>
+			<address>저자의 주소</address>
+		</author>
+		<publisher>출판사</publisher>
+		<price>10000</price>
+	</book>
+	
+	<book isbn="abc2">
+		<title>책이름2</title>
+		<author>
+			<name></name>
+			<tel>010-1234-5667</tel>
+			<address>저자의 주소</address>
+		</author>
+		<publisher>출판사</publisher>
+		<price>10000</price>
+	</book>
+	
+	<book isbn="abc3">
+		<title>책이름3</title>
+		<author>
+			<name></name>
+			<tel>010-1234-5667</tel>
+			<address>저자의 주소</address>
+		</author>
+		<publisher>출판사</publisher>
+		<price>10000</price>
+	</book>
+
+</booklist>

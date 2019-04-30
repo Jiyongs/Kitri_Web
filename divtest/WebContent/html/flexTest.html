@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>flex로 만들어보는 GridLayout</title>
+    <meta charset="utf-8">
+    <style>
+        .container{
+            background-color : powderblue;
+            display: flex;
+            flex-direction: column;
+        }
+        .header{
+            border-bottom:1px solid gray;
+            padding-left:20px;
+            text-align: center;
+        }
+        .footer{
+            border-top:1px solid gray;
+            padding:20px;
+            text-align: center;
+        }
+        .content{
+            display:flex;
+        }
+        .content #menu{
+            border-right:1px solid gray;
+        }
+        .content #aside{
+            border-left:1px solid gray;    
+        }
+        #menu, #aside{
+            flex-basis: 150px;
+            flex-shrink: 0;
+        }
+        .main{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+        	<h1>Header</h1></div>
+        <div class="content">
+            <div id="menu">
+                <ul>
+                    <li>menu1</li>
+                    <li>menu2</li>
+                    <li>menu3</li>
+                </ul>
+            </div>
+            <div class="main">
+            	<h2>main</h2>
+            	<!--
+            	<p>
+                	The term “web page” is starting to feel very, very… inadequate.
+  					CSS Grid opens up layout in ways that were not possible before, and our minds are racing with the opportunity in front of us.
+  					We hope these experiments will get you as excited as we are, and demonstrate a little of what’s possible with this new tool.
+  				</p>
+  				<p>
+  					The term “web page” is starting to feel very, very… inadequate.
+  					CSS Grid opens up layout in ways that were not possible before, and our minds are racing with the opportunity in front of us.
+  					We hope these experiments will get you as excited as we are, and demonstrate a little of what’s possible with this new tool.
+  				</p>
+  				<p>
+  					The term “web page” is starting to feel very, very… inadequate.
+  					CSS Grid opens up layout in ways that were not possible before, and our minds are racing with the opportunity in front of us.
+  					We hope these experiments will get you as excited as we are, and demonstrate a little of what’s possible with this new tool.
+  				</p>
+  				<p>
+  					The term “web page” is starting to feel very, very… inadequate.
+  					CSS Grid opens up layout in ways that were not possible before, and our minds are racing with the opportunity in front of us.
+  					We hope these experiments will get you as excited as we are, and demonstrate a little of what’s possible with this new tool.
+  				</p>
+  				<p>
+  					The term “web page” is starting to feel very, very… inadequate.
+  					CSS Grid opens up layout in ways that were not possible before, and our minds are racing with the opportunity in front of us.
+  					We hope these experiments will get you as excited as we are, and demonstrate a little of what’s possible with this new tool.
+  				</p>
+  				-->
+            </div>
+            <div id="aside">
+                <h2>aside</h2>
+            </div>
+        </div>
+        <div class="footer">
+            <h2>footer</h2>
+        </div class="footer">
+    </div>
+</body>
+</html>

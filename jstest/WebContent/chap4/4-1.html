@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function alertOpen(){
+	alert("알림창입니다.");
+}
+
+function confirmOpen(){
+	if(confirm("진짜 삭제?")){
+		console.log("확인을 누르셨습니다.");
+	} else {
+		console.log("취소를 누르셨습니다.");
+	}
+}
+
+function promptOpen(){
+	var txt = prompt("이름 입력!", "");
+	console.log("당신의 이름은 " + txt);
+}
+
+function myOpen(){
+	window.open('/js/chap4/my.html', 'test', 'width=400, height=300, top=200, left=300'); //창의 이름을 지정해야, 버튼 클릭 시 새 창을 다시 열지 않고 기존의 창을 다시 염
+}
+
+</script>
+
+</head>
+<body>
+
+<button onclick="javascript:alertOpen()">알림창</button>
+<button onclick="javascript:confirmOpen()">확인창</button>
+<button onclick="javascript:promptOpen()">입력창</button>
+
+<button onclick="javascript:myOpen()">새창열기</button> <br>
+
+span 메세지 : <span id="view" style="background-color : red"></span>
+div 메세지 : <div style="background-color : orange">안녕하세요</div>
+p 메세지 : <p style="background-color : yellow">반가워요</p>
+
+</body>
+</html>

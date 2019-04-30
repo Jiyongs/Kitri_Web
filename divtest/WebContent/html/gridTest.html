@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>grid로 만들어보는 GridLayout - template-areas</title>
+
+<style>
+.item1 {
+	grid-area: header;
+}
+
+.item2 {
+	grid-area: menu;
+}
+
+.item3 {
+	grid-area: main;
+}
+
+.item4 {
+	grid-area: right;
+}
+
+.item5 {
+	grid-area: sidebar;
+}
+
+.item6 {
+	grid-area: footer;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-areas: 'menu header header header header header'
+		'menu main main main right sidebar'
+		'menu main main main right sidebar'
+		'menu main main main right sidebar'
+		'menu footer footer footer footer footer';
+	grid-gap: 10px;
+	background-color: #2196F3;
+	padding: 10px;
+	width: 600pxd;
+	height: 80%;
+	margin: auto 0px;
+}
+
+.grid-container>div {
+	background-color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	padding: 20px 0;
+	font-size: 30px;
+}
+</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="item1">Header</div>
+		<div class="item2">Menu</div>
+		<div class="item3">
+			Main
+			<p>The term “web page” is starting to feel very, very…
+				inadequate. CSS Grid opens up layout in ways that were not possible
+				before, and our minds are racing with the opportunity in front of
+				us. We hope these experiments will get you as excited as we are, and
+				demonstrate a little of what’s possible with this new tool.</p>
+			<p>The term “web page” is starting to feel very, very…
+				inadequate. CSS Grid opens up layout in ways that were not possible
+				before, and our minds are racing with the opportunity in front of
+				us. We hope these experiments will get you as excited as we are, and
+				demonstrate a little of what’s possible with this new tool.</p>
+			<p>The term “web page” is starting to feel very, very…
+				inadequate. CSS Grid opens up layout in ways that were not possible
+				before, and our minds are racing with the opportunity in front of
+				us. We hope these experiments will get you as excited as we are, and
+				demonstrate a little of what’s possible with this new tool.</p>
+		</div>
+		<div class="item4">Right</div>
+		<div class="item5">Side bar</div>
+		<div class="item6">Footer</div>
+	</div>
+
+</body>
+</html>

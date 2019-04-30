@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" align="center" width="500">
+	<caption><h2>form control test - 회원가입</h2></caption>
+	<tbody align="center">
+		<tr>
+			<td>이름</td>
+			<td align="left"><input type="text" id="name" size="20"></td>	
+		</tr>
+		<tr>
+			<td>아이디</td>
+			<td align="left">
+				<input type="text" id="id" size="20">
+			    <input type="submit" value="중복확인"></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td align="left">
+			<input type="password" id="pass" size="20"></td>
+		</tr>
+		<tr>
+			<td>비밀번호확인</td>
+			<td align="left">
+			<input type="password" id="passck" size="20"></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td align="left">
+			<label><input type="radio" name="gender" value="남">남</label>
+			<label><input type="radio" name="gender" value="여" checked="checked">여</label>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">좋아하는 과일</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<label><input type="checkbox" name="fruit" value="사과">사과</label>
+			<label><input type="checkbox" name="fruit" value="수박" checked="checked">수박</label>
+			<label><input type="checkbox" name="fruit" value="딸기">딸기</label>
+			<label><input type="checkbox" name="fruit" value="포도">포도</label>	
+			</td>
+		</tr>
+		<tr>
+			<td>이메일</td>
+			<td align="left">
+			<input type="email" id="emailid" size="10">
+			<label>@</label> 
+			<select id="emaildomain">
+				<option value="naver.com">네이버
+				<option value="gmail.com">구글
+				<option value="hanmail.net">다음
+				<option value="nate.com">네이트				
+			</select>
+			<input type="email" size="10">
+			</td>
+		</tr>
+		<tr>
+			<td>연락처</td>
+			<td align="left">
+			<select id="tel1">
+				<option value="02">02
+				<option value="010">010
+				<option value="031">031
+				<option value="032">032
+				<option value="033">033
+				<option value="041">041
+				<option value="042">042				
+			</select> - 
+			<input type="phone" id="tel2" size="7"> -
+			<input type="phone" id="tel3" size="7">			
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<input type="submit" value="회원가입">
+			<input type="reset" value="초기화">
+			</td>
+		</tr>
+	</tbody>
+	</table>
+</body>
+</html>

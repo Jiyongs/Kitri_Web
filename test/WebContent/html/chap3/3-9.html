@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<!-- default method는 get / form에서 입력받은 값을 action에 지정해준 경로로 전달함 -->
+	<form name="textForm" method="get 또는 post" action="url">
+	<ul type="none">
+		<li>
+			<!-- for="id" id를 위한 라벨임을 명시함 -->
+			<label for="userid">아이디</label>   
+			<input type="text" name="userid" id="userid" size="10" maxlength="12">
+		</li>
+		<li>
+			<label for="pass">비밀번호</label>
+			<input type="password" name="pass" id="pass">
+		</li>
+		<li>
+			<!-- 입력값을 전달하는데 사용하는 "로그인" 버튼 -->
+			<input type="submit" value="로그인">
+			<!-- 입력값을 초기화하는데 사용하는 "입력값 초기화" 버튼 -->
+			<input type="reset" value="입력값 초기화">
+		</li>
+	</ul>
+	</form>
+</body>
+</html>

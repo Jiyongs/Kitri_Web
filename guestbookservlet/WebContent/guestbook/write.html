@@ -8,15 +8,36 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 
+function writeArticle() {
+	if(document.getElementById("name").value == ""){
+		alert("작성자 이름을 입력해주세요.");
+		return;
+	} else if(document.getElementById("subject").value == ""){
+		alert("글 제목을 입력해주세요.");
+		return;
+	} else if(document.getElementById("content").value == "") {
+		alert("글 내용을 입력해주세요.");
+		return;
+	} else {
+		document.getElementById("writeform").action = "/guestbookservlet/gbwrite";
+		document.getElementById("writeform").submit();
+	}
+	
+	
+}
+
 </script>
+
 </head>
 <body>
 
 <div class="container" align="center">
 	<div class="col-lg-6" align="center">
 		<h2>방명록 글쓰기</h2>
+		
 		<form id="writeform" method="post" action="">
 			<div class="form-group" align="left">
 				<label for="name">작성자:</label>

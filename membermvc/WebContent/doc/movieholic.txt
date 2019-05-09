@@ -1,0 +1,37 @@
+movieholic
+	src
+		-
+		
+	webContent
+		- js
+		- css
+		- jmg
+		
+		- admin
+			managementList.jsp
+			stat.jsp
+		
+		- user
+			- film
+				filmList.jsp
+				filmDetail.jsp
+			- list
+				listWrite.jsp
+				listList.jsp
+				listDetail.jsp
+			- mypage
+				mypageMain.jsp
+				myFilmChart.jsp
+				wishList.jsp
+				reviewWrite.jsp
+				reviewList.jsp
+				reviewDetail.jsp
+				reviewWrite.jsp
+				social.jsp
+				setting.jsp
+				
+			- account
+				login.jsp
+				register.jsp
+				findId.jsp
+				findPass.jsp

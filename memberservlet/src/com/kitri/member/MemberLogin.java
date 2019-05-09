@@ -14,15 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class MemberLogin extends HttpServlet {
 
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -14,22 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
-/**
- * Servlet implementation class GuestBookList
- */
 @WebServlet("/gblist")
 public class GuestBookList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
+	// 서버를 구동시킬 때 server.xml을 읽어들임 - server에 메모리가 올라감 - 모든 서블릿도 올라가므로, init에서 db driver를 한번만 로딩하면 db 연결 가능!
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -42,9 +32,11 @@ public class GuestBookList extends HttpServlet {
 		
 		// 1. logic : guestbook 테이블의 모든 data select (seq, name, subject, content, logtime)
 		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "kitri", "kitri");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.14.52:1521:orcl", "kitri", "kitri");
 			StringBuffer sql = new StringBuffer();
-			sql.append("select * from guestbook");
+			sql.append("select seq, name, subject, content, logtime \n");
+			sql.append("from guestbook \n");
+			sql.append("order by seq asc");
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql.toString());
 			
@@ -92,6 +84,9 @@ public class GuestBookList extends HttpServlet {
 				"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js\"></script>\r\n" + 
 				"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js\"></script>\r\n" + 
 				"<script type=\"text/javascript\">\r\n" + 
+				"function moveWrite() {"
+				+ "document.loction.href = /guestbookservlet/gusetbook/write.html"
+				+ "}" +
 				"</script>\r\n" + 
 				"</head>\r\n" + 
 				"<body>\r\n" + 
@@ -101,7 +96,7 @@ public class GuestBookList extends HttpServlet {
 				"  <h2>글목록</h2>"
 				+ "<table class=\"table table-borderless\">\r\n" + 
 				"  	<tr>\r\n" + 
-				"  		<td align=\"right\"><button type=\"button\" class=\"btn btn-link\" >글쓰기</button></td>\r\n" + 
+				"  		<td align=\"right\"><button type=\"button\" class=\"btn btn-link\" onclick=\"javascript:moveWrite\">글쓰기</button></td>\r\n" + 
 				"  	</tr>\r\n" + 
 				"  </table>");
 		
@@ -124,7 +119,7 @@ public class GuestBookList extends HttpServlet {
 					"      </tr>\r\n" + 
 					"      <tr>\r\n" + 
 					"        <td colspan=\"2\">");
-			out.println(list.get(i).getContent() + "</td>\r\n" + 
+			out.println(list.get(i).getContent().replace("\n", "<br>") + "</td>\r\n" + 
 					"      </tr>\r\n" + 
 					"    </tbody>\r\n" + 
 					"  </table>");

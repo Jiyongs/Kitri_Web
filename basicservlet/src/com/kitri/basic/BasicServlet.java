@@ -20,7 +20,7 @@ public class BasicServlet extends HttpServlet {
 	public void init() throws ServletException {
 		// init() 용도 1
 		// 전역 변수의 초기값 지정
-		name = "신지영";
+		name = "홍길동";
 		age = 25;
 	}
 

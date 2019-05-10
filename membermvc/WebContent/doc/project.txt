@@ -61,3 +61,24 @@ membermvc(프로젝트 이름)
 				loginfail.jsp
 				
 		index.jsp
+		
+* HttpSession & Cookie
+Cookie		: client 컴퓨터에 txt형태로 저장됨	>> String 저장
+				-> 일반인도 조회 가능 / 보안 취약
+				
+				* ex)
+				-> 팝업광고 - 오늘은 그만 볼래요
+				-> 쇼핑몰 - 오늘 클릭한 상품
+
+HttpSession	: server의 memory에 저장됨			>> Object 저장
+				-> 서버 관리자만 조회 가능
+
+
+오늘 본 상품 			: cookie
+
+찜한 상품 (wishlist)	: 상품 목록만 저장(session)
+
+장바구니				: 상세 정보까지 저장(session) / 로그아웃해도 안 날아감 (db)
+
+* wishlist - cookie & 장바구니 - session
+* wishlist - session & 장바구니 - cookie

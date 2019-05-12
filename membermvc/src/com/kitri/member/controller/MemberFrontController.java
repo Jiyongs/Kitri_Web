@@ -23,7 +23,7 @@ public class MemberFrontController extends HttpServlet {
 		
 		// 파라미터 변수
 		String act = request.getParameter("act");
-		
+				
 		// 이동 경로 설정 변수
 		// 경로 잘못 설정시 디폴트값은 index.jsp!
 		String path = "/index.jsp";	
@@ -40,6 +40,10 @@ public class MemberFrontController extends HttpServlet {
 		} else if("mvlogin".equals(act)) {
 			
 			MoveUrl.redirect(request, response, "/user/login/login.jsp");	
+			
+		} else if("mvmodify".equals(act)) {
+			
+			MoveUrl.redirect(request, response, "/user/member/membermodify.jsp"); //
 			
 		} else if("idcheck".equals(act)) {
 			// #ajax 작업은 Back Controller에 따로 메소드를 뺴는 것보다
@@ -70,13 +74,17 @@ public class MemberFrontController extends HttpServlet {
 			
 			
 		} else if("login".equals(act)) {
-			
 			path = MemberController.getMemberController().login(request, response);
 			MoveUrl.redirect(request, response, path);
-			
+	
 		} else if("logout".equals(act)) {
 			
 			path = MemberController.getMemberController().logout(request, response);
+			MoveUrl.redirect(request, response, path);
+			
+		} else if("deleteMember".equals(act)) {
+			
+			path = MemberController.getMemberController().delete(request, response);
 			MoveUrl.redirect(request, response, path);
 			
 		}

@@ -153,10 +153,10 @@ function register() {
 			<div class="form-group" align="left">
 				<label for="">주소</label><br>
 				<div id="addressdiv" class="custom-control-inline">
-					<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="우편번호" size="7" maxlength="5" readonly="readonly">
+					<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="우편번호" size="7" maxlength="5" readonly="readonly" value="12345">
 					<!--<button type="button" class="btn btn-primary" onclick="javascript:">우편번호</button>-->
 				</div>
-				<input type="text" class="form-control" id="address" name="address" placeholder="" readonly="readonly">
+				<input type="text" class="form-control" id="address" name="address" placeholder="" readonly="readonly" value="기본주소">
 				<input type="text" class="form-control" id="address_detail" name="address_detail" placeholder="">
 			</div>
 			<div class="form-group" align="center">

@@ -3,7 +3,6 @@ package com.kitri.member.controller;
 import javax.servlet.http.*;
 
 import com.kitri.member.model.*;
-import com.kitri.member.model.service.MemberService;
 
 // Business Logic 담당 컨트롤러 (Back Controller)
 // : Front Controller 역할을 제외한 나머지 작업 수행
@@ -70,7 +69,7 @@ public class MemberController {
 		
 		// 로그인 했을 경우,
 		if(memberDto != null) {
-			
+
 			///////////////////////// cookie ////////////////////////
 			
 			// '아이디 저장' 체크박스가 체크됐을 경우, 쿠키 저장
@@ -131,6 +130,25 @@ public class MemberController {
 		//session.setAttribute("userInfo", null);
 //		session.removeAttribute("userInfo");
 		session.invalidate();  //세션의 모든것을 무효화 / 삭제
+		return "/user/login/login.jsp";
+	}
+
+	// <탈퇴> 메소드
+	public String delete(HttpServletRequest request, HttpServletResponse response) {
+
+		// 세션으로부터 탈퇴하는 계정의 id 값 받기
+		HttpSession session = request.getSession();
+		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+		
+		String id = memberDto.getId();
+		
+		System.out.println("탈퇴하려는 id : " + id);
+		
+		int cnt = MemberServiceImpl.getMemberService().deleteMember(id);
+		
+		// 세션 무효화
+		session.invalidate();
+		
 		return "/user/login/login.jsp";
 	}
 	

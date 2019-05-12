@@ -3,13 +3,6 @@
 
 <%@ include file = "/template/header.jsp" %>
 
-<%
-	//String name = request.getParameter("name");
-	MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
-	
-	if(memberDto != null) {
-%>
-
 <script type="text/javascript">
 function deleteMember() {
 	if(confirm("정말 탈퇴하시겠습니까?")){
@@ -18,6 +11,13 @@ function deleteMember() {
 	}
 }
 </script>
+
+<%
+	//String name = request.getParameter("name");
+	MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+	
+	if(memberDto != null) {
+%>
 
 <strong><%=memberDto.getName()%>(<%=memberDto.getId()%>)님 안녕하세요.</strong>
 <a href="<%=root%>/user?act=logout">로그아웃</a>
@@ -32,9 +32,7 @@ function deleteMember() {
 				<a href="<%=root%>/admin?act=memberlist">관리자</a>
 
 <%
-			} else {
-				MoveUrl.redirect(request, response, "/user?act=mvlogin");
-			}
+			} 
 
 	}else{
   		 MoveUrl.redirect(request, response, "/user?act=mvlogin");
@@ -42,7 +40,7 @@ function deleteMember() {
 	// 문제
 	// : 로그인이 풀려있는 것처럼 보임
 	// -> 로그인 정보를 request에 담았기 때문
-	// -> 컨트롤러를 수정
+	// -> 컨트롤러를 수정 (로그인 정보를 session에 담음)
 	
 %>
 

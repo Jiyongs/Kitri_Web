@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>select.html</title>
+
+<style>
+#engine, #body{
+	display : none;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+
+$(function(){
+	//셀렉트 박스의 선택 값이 바뀌는 경우 "change 이벤트"
+	$("#car").change(function(){
+		// dom 에서 id가 engine인 객체 찾기
+		//var $engineObj = $("#engine");
+		var $engineObj = $("#div2");
+		var data = '<select id="engine">';
+		
+		// 선택 객체의 value 속성값 얻기
+		var car = $(this).val();
+		if(car == '소나타') {
+			data += '<option>Smartstream 02.0</option>';
+			data += '</select>'
+			$engineObj.html(data);  					 // engine 객체의 innerHtml로 data 대입
+			//$engine.css('display', 'inline-block');  // engine 객체의 style diplay를 inline-block으로 설정
+			// $engineObj.show();	
+			
+			//var $selectObj = $engineObj.children("#engine"); // 자식으로 찾고싶을때
+	         var $selectObj = $engineObj.find("#engine");      // 후손으로 찾고싶을때
+	         $selectObj.show();
+			
+		} else if(car == '펠리세이드') {
+			data += '<option>가솔린 3.8</option>';
+			data += '<option>디젤 2.2</option>';
+			data += '</select>'
+
+			$engineObj.html(data);
+			//$engine.css('display', 'inline-block');
+			//$engineObj.show();			
+			var $selectObj = $engineObj.find("#engine");      // 후손으로 찾고싶을때
+	        $selectObj.show();
+		} else {
+			var $selectObj = $engineObj.find("#engine");
+			$selectObj.hide();
+		}
+		
+	});
+	
+	// id가 engine인 객체의 click 이벤트 핸들러
+	// 할 일 : value 속성값을 경고창에 출력
+	/*
+	$("#engine").click(function(){
+		alert($(this).val());
+	});
+	*/
+	
+	// 현재는 없지만
+	// 향후 추가될 DOM 객체의 이벤트 핸들러 등록 방법 : on()
+	// on("이벤트", "DOM객체", 함수)
+	$("#div2").on("click", "#engine", function(){
+		alert($(this).val());
+	});
+	
+});
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<!-- 자동차 종류 -->
+	<select id="car">
+		<option>선택하세요</option>
+		<option>소나타</option>
+		<option>펠리세이드</option>
+	</select>
+</div>
+
+<div id="div2">
+	<!-- 엔진 종류
+	<select id="engine">
+	</select> -->
+</div>
+
+<div>
+	<!-- 바디타입 (수용인원) -->
+	<select id="body">
+	</select>
+</div>
+
+</body>
+</html>

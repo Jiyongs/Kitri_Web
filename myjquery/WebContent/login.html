@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+$(function(){
+	// dom에서 form 객체 찾기
+	$("form").submit(function() {
+		$.ajax({
+			url:'MemberLogin',
+			method: 'post',
+			data:
+			// 'id=' + $("input[name=id]").val() + '&pwd=' + $("input[name=pwd]").val(),
+			// {id: $('input[name=id]').val(), ...}
+			$('form').serialize(),
+			
+			success:function(result){
+				$("section").html(result);
+			}
+		});
+		
+		return false; // 기본 이벤트 막기!
+	});
+});
+</script>
+
+<form>
+	ID : <input type="text" name="id"><br>
+	PW : <input type="password" name="pass">
+	<button>로그인</button>
+</form>

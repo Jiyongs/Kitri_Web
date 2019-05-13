@@ -64,7 +64,7 @@ public class MemberDaoImpl implements MemberDao{
 		return cnt;
 	}
 
-	// <> 메소드
+	// <주소검색> 메소드
 	@Override
 	public List<ZipcodeDto> zipSearch(String doro) {
 		List<ZipcodeDto> list = new ArrayList<ZipcodeDto>();
@@ -114,6 +114,7 @@ public class MemberDaoImpl implements MemberDao{
 		return list;
 	}
 
+	// <회원가입> 메소드
 	@Override
 	public int registerMember(MemberDetailDto memberDetailDto) {
 		int cnt = 0;
@@ -160,6 +161,7 @@ public class MemberDaoImpl implements MemberDao{
 		return cnt;
 	}
 
+	// <로그인> 메소드
 	@Override
 	public MemberDto loginMember(Map<String, String> map) {
 		
@@ -212,9 +214,48 @@ public class MemberDaoImpl implements MemberDao{
 		return 0;
 	}
 
+	// <탈퇴> 메소드
 	@Override
 	public int deleteMember(String id) {
-		return 0;
+
+		int cnt = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			
+			StringBuffer sql = new StringBuffer();
+			sql.append("delete \n");
+			sql.append("from member_detail \n");
+			sql.append("where id = ? \n");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+		
+			pstmt.setString(1, id);
+			
+			cnt = pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+			StringBuffer sql2 = new StringBuffer();
+			sql2.append("delete \n");
+			sql2.append("from member \n");
+			sql2.append("where id = ? \n");
+			
+			pstmt = conn.prepareStatement(sql2.toString());
+			pstmt.setString(1, id);
+			
+			cnt = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+				DBClose.close(conn, pstmt);
+		}
+		
+		return cnt;
 	}
 
 	

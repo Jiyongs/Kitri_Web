@@ -49,7 +49,7 @@ public class AdminDaoImpl implements AdminDao{
 				if("id".equals(key)) {
 					sql.append("and m.id = ? \n");
 				} else { // 검색 조건이 id가 아닌 나머지인 경우
-					sql.append("and m." + key + " like '%'||?||'%' \n");
+					sql.append("and d." + key + " like '%'||?||'%' \n");
 				}
 			}
 

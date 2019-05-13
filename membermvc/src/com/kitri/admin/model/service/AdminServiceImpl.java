@@ -36,7 +36,7 @@ public class AdminServiceImpl implements AdminService{
 			result += "		<name>" + memberDetailDto.getName() + "</name>\n";
 			result += "		<email>" + memberDetailDto.getEmailid() + "@" + memberDetailDto.getEmaildomain() + "</email>\n";
 			result += "		<tel>" + memberDetailDto.getTel1() + "-" + memberDetailDto.getTel2() + "-" + memberDetailDto.getTel3() + "</tel>\n";
-			result += "		<address><![CDATA[" + memberDetailDto.getZipcode() + " " + memberDetailDto.getAddress() + "]]></address>\n";
+			result += "		<address><![CDATA[" + memberDetailDto.getZipcode() + " " + memberDetailDto.getAddress() + " " + memberDetailDto.getAddressDetail() + "]]></address>\n";
 			result += "		<joindate>" + memberDetailDto.getJoindate() + "</joindate>\n";
 			result += "	</member>\n";
 		}

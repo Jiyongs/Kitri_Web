@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sementic.html</title>
+
+<style>
+header {
+	background-image: url("http://image.zdnet.co.kr/2018/04/24/paikshow_hIifAhKPTWW.jpg");
+	background-repeat: no-repeat;
+	height : 100px;
+	background-position: center;
+}
+nav>ul {
+	list-style: none;
+	padding : 0px;
+}
+nav>ul>li {
+	display : inline;
+}
+footer{
+	position : fixed;
+	bottom : 0px;
+	width : 100%;
+	background-color: lightgreen;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+
+$(function(){
+	// dom에서 nav>ul>li>a 객체를 찾기
+	var aArr = $("nav>ul>li>a");
+	$(aArr).click(function(){
+		var vurl = $(this).attr("href");
+		$.ajax({
+			url:vurl,  //객체의 프로퍼티 : url / url프로퍼티의 값 : vurl
+			method:'get',
+			success:function(result){
+				$("section").html(result);
+			}
+		});
+		return false; //기본 이벤트 막기
+	});
+});
+
+/*
+javascript의 {} : 객체
+$.ajax({});     : 객체를 전송
+
+$.ajax({
+	url : 전송할 경로,
+	method : get 또는 post,
+	sucess : 결과를 받을 function의 인자
+});
+*/
+
+</script>
+
+</head>
+<body>
+
+<header><h1>My Web</h1></header>
+<nav>메뉴
+	<ul>
+		<li><a href="login.html">로그인</a></li>
+		<li><a href="member.html">가입</a></li>
+	</ul>
+</nav>
+<section>본문</section>
+<footer>사업자 : 현대자동차(주) | 대표 : 홍길동</footer>
+
+</body>
+</html>

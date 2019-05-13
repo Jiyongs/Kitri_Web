@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form.html</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script>
+// [jquery]
+// $(document).ready(function({}))
+$(function(){
+	// dom 트리에서 form 객체 찾기
+	var $formObj = $("form");
+	$formObj.submit(function(){
+		var $tObj = $("input[name=t]");
+		var $tObjValue = $tObj.val().trim(); //.val() = .value
+		if($tObjValue.length == 0){
+			alert("반드시 입력하세요");
+			$tObj.focus();
+			return false; //**기본 이벤트(submit) 막기**
+		} 
+		
+		alert("전송되었습니다.");
+		
+		//form 객체의 속성 변경하기
+		$formObj.attr("action", "http://www.naver.com");
+		$formObj.attr("method", "post");
+	});
+});
+
+/*
+// [javascript]
+window.addEventListener("load", function() {
+	// 1
+	// dom 트리에서 input 태그 중 type 속성값이 submit인 객체 찾기
+	var submitObj = document.querySelector("input[type=submit]");
+	// submitObj에서 클릭이벤트 핸들러 작성하기
+	// 할 일 : 클릭되었습니다. 경고창 띄우기.
+	submitObj.addEventListener("click", function() {
+		alert("클릭되었습니다.");
+	});
+	
+	//2
+	// dom 트리에서 form 객체 찾기
+	var formObj = document.querySelector("form");
+	
+	// submitObj에서 submit 이벤트 핸들러 작성하기
+	// 할 일 : 전송되었습니다. 경고창 띄우기.
+	formObj.addEventListener("submit", function(event) {
+		// [유효성 검사]
+		// input 객체 중 name 속성이 t인 객체 찾기
+		var tObj = document.querySelector("input[name=t]");
+		var tObjValue = tObj.value.trim(); // 앞 뒤 공백 제거
+		if(tObjValue.length == 0){
+			alert("반드시 입력하세요!!");
+			tObj.focus();
+			event.preventDefault(); //form의 기본 이벤트인 submit을 막음
+			return false;
+		}
+		
+		// [유효성 검사 통과]
+		alert("전송되었습니다.");
+		
+		//form 객체의 속성 변경하기
+		formObj.action = "http://www.naver.com";
+		formObj.method = 'post';
+		
+		});
+});
+*/
+
+</script>
+
+</head>
+<body>
+	<form action="http://www.google.com">
+		<input name="t">
+		<input type="password" name="p">
+		<input type="checkbox" name="c" value="1">ONE&nbsp;&nbsp;
+		<input type="checkbox" name="c" value="2">TWO&nbsp;&nbsp;
+		<input type="checkbox" name="c" value="3">THREE
+		<select name="s">
+			<option>ONE</option>
+			<option>TWO</option>
+			<option>THREE</option>
+		</select>
+		<input type="submit" value="전송1">
+		<input type="button" value="버튼1">
+		<button>전송2</button>
+	</form>
+		<button>버튼2</button>
+		
+		
+</body>
+</html>

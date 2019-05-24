@@ -1,0 +1,28 @@
+<script>
+$(function(){	
+	$("button").click(function(){
+		var form = $('form')[0];           // 첫번째 폼 객체
+		var formData = new FormData(form); // formData = 
+		console.log(formData.get('a'));
+		console.log(formData.get('f1'));
+		$.ajax({
+			url:'upload',
+			method:'post',
+			processData: false,
+            contentType: false,
+			data:formData,
+			success:function(result){
+				alert("파일업로드 OK");
+				$("section").html(result.trim());				
+			}
+		});
+		return false;
+	});
+});
+</script>
+<form method="post" enctype="multipart/form-data" action="upload">
+  <input type="text" name="a" value="aaa">
+  <input type="file" name="f1">  
+</form>
+<button>업로드</button>
+
